@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>SDCSA Project Prototype</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet'/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' rel='stylesheet' />
+</head>
+
+<body>
+
+  <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+                <a href="index.html"><li>Home</li></a>
+                <a href="about.html"><li>About</li></a>
+                <a href="analysis.html"><li>Analysis</li></a>
+                <br>
+                <p>This interactive map visualises the top five healthiest routes by air pollution in the London Borough of Tower Hamlets.</p>
+                <p>To use this map, switch between routes and pollution using the button. Hover over the routes and use the slider to filter the healthiest routes by length. Zoom, scroll and use the bar above to further explore the map.</p>
+          </ul>
+        </div>
+    </nav>
+
+    
+<div id='map'></div>
+
+<div id="console">
+    <div id="slider_container">
+    <div class='slider' style='margin-left:10px;'>
+      <strong>Length: <label id='active-id'>7km</label></strong>
+      <input id='slider' class='row' type='range' min='1' max='9' step='1' value='7' />
+    </div>
+    </div>
+    <div class='rounded-toggle inline' id='toggle'>
+        <input id='Routes' name = 'rtoggle' type='radio' value='Routes' checked='checked'>
+            <label for='Routes'>Routes</label>
+        <input id='pollution' name = 'rtoggle' type='radio' value='pollution'>
+            <label for='pollution'>Pollution</label>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id='legend_routes' style='display:block; margin-left:6px;'>
+        <strong>Routes</strong>
+        <nav class='legend clearfix'>
+          <span style='background:#2ca25f;'></span>
+          <span style='background:#2ca25f;'></span>
+          <span style='background:#2ca25f;'></span>
+          <span style='background:#2ca25f;'></span>
+          <span style='background:#2ca25f;'></span>
+          <span style='background:#2ca25f;'></span>
+          <span style='background:#2ca25f;'></span>
+    </div>
+    <div id='legend_pollution' style='display:block; margin-left:6px; display:none;'>
+        <strong>Pollution</strong>
+        <nav class='legend clearfix'>
+          <span style='background:#542788;'></span>
+          <span style='background:#998ec3;'></span>
+          <span style='background:#d8daeb;'></span>
+          <span style='background:#f7f7f7;'></span>
+          <span style='background:#fee0b6;'></span>
+          <span style='background:#f1a340;'></span>
+          <span style='background:#b35806;'></span>
+          <label><h3>Low</h3></label>
+          <label></label>
+          <label></label>
+          <label></label>
+          <label></label>
+          <label></label>
+          <label><h3>High</h3></label>
+    </div>
+</div>
+
+<script type="text/javascript" src='js/app.js'></script>
+
+</body>
+
+</html>

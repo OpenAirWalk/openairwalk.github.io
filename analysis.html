@@ -1,0 +1,281 @@
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet'/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+        <script src="js/jquery.flot.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    </head>
+
+    <head>
+        <style>
+            strong {
+                font-size: 18px;
+            }
+
+            h2 { 
+                font-size: 26px;
+                margin: 0% 15%;
+                text-align: center;
+            }
+
+            #text {
+                margin: 20px 15% ;
+                text-align: justify;
+            }
+
+            .pictures{
+                margin: 3% 10%;
+                text-align: center;
+                
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .column {
+                position: relative;
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+                /*width:23%*/
+                min-width: 250px;
+                max-width: 300px;
+            }
+            
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            h3 { 
+                font-size: 10px;
+                text-align: center;
+            }    
+
+            .graphs {
+                margin: 3% 10%;
+                text-align: center;
+            }    
+
+            .column2 {
+                position: relative;
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+            .row2::after {
+                content: "";
+                clear: both ;
+                display: table;
+            }        
+        </style>    
+    </head>
+
+    <body>
+
+            <nav role="navigation">
+                <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                        <a href="index.html"><li>Home</li></a>
+                        <a href="about.html"><li>About</li></a>
+                        <a href="analysis.html"><li>Analysis</li></a>
+                        <br>
+                        <p>This interactive map visualises the top five healthiest routes by air pollution in the London Borough of Tower Hamlets.</p>
+                        <p>To use this map, switch between routes and pollution using the button. Hover over the routes and use the slider to filter the healthiest routes by length. Zoom, scroll and use the bar above to further explore the map.</p>
+                </ul>
+                </div>
+            </nav>
+
+            <div>
+                <h2>ANALYSIS</h2>
+                <div id="text">
+                    <p>All data was sourced from the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Datastore</a>. The dataset used for this project was the London Atmospheric Emissions Inventory (LAEI), which contains the most recent 2013 pollution surface data for NO2, NOx, PM10 and PM2.5, covering all 33 London Boroughs, and out as far as the M25 motorway (Greater London Authority, 2016b).</p>
+                    
+                    <p>The data for each of the four key pollutants listed above (NO2, NOx, PM10 and PM2.5) were first normalised. Each layer of the pollutant values was converted to a uniform scale, by normalising and transforming the values to a range between 0 and 1. These layers were then added using raster algebra, to form the master layer. This layer was again normalised and finally scaled up to increase the detail of variation of the final values, therefore increasing the precision of the final routes to be created. This normalisation allowed the combination of each separate pollutant, into a master air pollution dataset; a single numerical reading for each data point represents all four pollutants.</p>
+                    
+                    <div class="pictures">
+                            <div class="row">
+                                <div class="column">
+                                  <img src="img/no2map.png" alt="no2 emission map" style="width:100%" >
+                                    <figcaption><h3>NO2</h3></figcaption>
+                                    </div>
+                                <div class="column">
+                                    <img src="img/noxmap.png" alt="nox emission map" style="width:100%" >
+                                    <figcaption><h3>NOX </h3></figcaption>
+                                </div>
+                                <div class="column">
+                                     <img src="img/pm25map.png" alt="pm2.5 emission map" style="width:100%" >
+                                    <figcaption><h3>PM 2.5</h3></figcaption>
+                                </div>
+                                 <div class="column">
+                                     <img src="img/pm10map.png" alt="pm10 emission map" style="width:100%" >
+                                     <figcaption><h3>PM 10</h3></figcaption>
+                                </div>
+                            </div>
+                    </div>
+
+                    <p>The analysis of the data focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants (NO2, NOx, PM10 and PM2.5) were selected, and follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, over which all 45 routes were overlaid.</p>
+                    
+                    <p>The existing road network was used as the base for estimating the lowest routes. Random points were generated all across the borough, which were incidents on the road network to be used as origin and destination points for those routes. Finally, using these origin and destination points, multiple routes of various lengths passing through streets with the lowest combined level of pollutants were created to connect these origins and destinations.</p>
+                </div>
+
+                <div class="graphs">
+                    <div class="column2">
+                    <div style="height:300px; width:600px">
+                        <canvas id="chart1" ></canvas>
+                    </div>
+                    </div>
+                </div>
+                
+                              
+            <script>            
+                var myChart = document.getElementById('chart1').getContext('2d');
+
+                //global options
+                Chart.defaults.global.responsive = false;
+                Chart.defaults.global.defaultFontSize = 10;
+
+                var chart1 = new Chart(myChart,{
+                    type: 'bar',
+                    data: {
+                        labels:['NO2','NOX','PM2.5', 'PM10'],
+                        datasets:[{
+                            label:'min',
+                            fill: false,
+                            lineTension: 0,
+                            borderColor: '#db5b34',
+                            backgroundColor: '#db5b34',
+                            pointBackgroundColor: '#db5b34',
+                            data:[34,51,16, 25],  
+                            pointStyle: 'circle',
+                        },
+                        {
+                            label:'mean',
+                            fill: false,
+                            lineTension: 0,
+                            borderColor: '#37d4b6',
+                            backgroundColor:'#37d4b6',
+                            pointBackgroundColor: '#37d4b6',
+                            data:[42,74,17, 27],
+                            pointStyle: 'triangle',
+                        },
+                        {
+                            label:'max',
+                            fill: false,
+                            lineTension: 0,
+                            borderColor: '#3861a2',
+                            backgroundColor:'#3861a2',
+                            pointBackgroundColor: '#3861a2',
+                            data:[192,784,31, 66],
+                            pointStyle: 'rect',
+                            
+                        },
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        title:{
+                            display:true,
+                            text:'',
+                            fontSize:12
+                        },
+                        legend:{
+                            display:true,
+                            position:'bottom',
+                            labels:{
+                                fontColor:'#484848'
+                            }
+                        },
+                        layout:{
+                            padding:{
+                                left:0,
+                                right:0,
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        showLines: false,
+                    },
+                });
+
+                var myChart = document.getElementById('chart2').getContext('2d');
+
+                //global options
+                Chart.defaults.global.responsive = false;
+                Chart.defaults.global.defaultFontSize = 10;
+
+                var chart2 = new Chart(myChart,{
+                    type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                    data: {
+                        labels:['NO2','NOX','PM2.5', 'PM10'],
+                        datasets:[{
+                            label:'Mean',
+                            data:[
+                                42.170698789745,
+                                73.565986036857,
+                                16.817938379119,
+                                26.644096102504
+                            ],
+                            backgroundColor:[
+                              '#e2c529',
+                              '#e28e43',
+                              '#16a085',
+                              '#758fbf',
+                            ],
+                            hoverBackgroundColor: [
+                              '#dfb50c',
+                              '#c66b1a',
+                              '#0a9177',
+                              '#166ca5',
+                            ], 
+                        }]
+                    },
+                    options: {
+                        title:{
+                            display:true,
+                            text:'Mean',
+                            fontSize:12
+                        },
+                        legend:{
+                            display:false,
+                            position:'right',
+                            labels:{
+                                fontColor:'#e85f5f'
+                            }
+                        },
+                        layout:{
+                            padding:{
+                                left:0,
+                                right:20,
+                            }
+                        }
+                    },
+                });
+
+            </script>
+        </div>
+    </body>
+</html>

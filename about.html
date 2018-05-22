@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet'/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    </head>
+
+    <head>
+        <style>
+            strong {
+                font-size: 18px;
+            }
+
+            h2 { 
+                font-size: 26px;
+                margin: 0% 15%;
+                text-align: center;
+            }
+
+            #text {
+                margin: 20px 15% ;
+                text-align: justify;
+            }
+
+
+            .pictures{
+                margin: 3% 14%;
+                text-align: center;
+
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .column {
+                position: relative;
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 23%;
+                transition: transform .2s;
+            }
+
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            } 
+            
+            .column:hover {
+                -ms-transform: scale(1.3);
+                -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+            }
+
+        </style> 
+    </head>
+
+    <body>
+
+    <nav role="navigation">
+            <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                    <a href="index.html"><li>Home</li></a>
+                    <a href="about.html"><li>About</li></a>
+                    <a href="analysis.html"><li>Analysis</li></a>
+                    <br>
+                    <p>This interactive map visualises the top five healthy routes by kilometre by air quality and pollution in the London Borough of Tower Hamlets.</p>
+                    <p>To use this map, switch between routes and pollution using the button. Hover over the routes and use the slider to filter the healthiest routes by length. Zoom, scroll and use the bar above to further explore the map.</p>
+            </ul>
+            </div>
+        </nav>
+
+        <div>
+            <h2>ABOUT</h2>
+            <div id="text">
+            <p>Air pollution causes the early death of more than 9,000 Londoners every year, and costs London’s economy around £3.7 billion. Air pollution, the release of harmful gases and particulates into the atmosphere, is detrimental to health, and is therefore a big problem, especially in large, densely-populated cities such as London.</p> 
+
+            <p>Air pollution is primarily caused by energy production, and in London, one of the main causes is transportation. Air pollution negatively impacts upon health, affecting both the heart and the lungs, with the impacts ranging from short term, mild symptoms, to long term fatal conditions.</p>
+
+            <p>The significance of air pollution has made its reduction a major focus of clean-air initiatives within London. These initiatives have been informed by the data collected by the London Atmospheric Emissions Inventory (LAEI) 2013, and have centred around the monitoring of four key pollutants – nitrogen dioxide (NO2), nitrogen oxides (NOx), particulate matter with aerodynamic diameter less than 10µm (PM10), and particulate matter with aerodynamic diameter less than 2.5µm (PM2.5) – as well as a variety of other pollutant types.</p> 
+            
+            <p>The aim of this project is to provide a user-friendly way to visualise healthy walking routes in the London Borough of Tower Hamlets. Based on the 2013 LAEI air pollution data from the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Datastore</a>, these walking routes will be defined as healthy within the context of air pollution – routes will be calculated based on paths of least mean pollution. This visualisation provides a tool for local citizens and other users. It enables the location and selection of the healthiest outdoor routes nearby, allowing the healthy outdoor use of the borough itself.</p>
+        </div>
+
+            <div class="pictures">
+                <div class="row">
+                    <div class="column">
+                        <img src="img/generalinfo.png" alt="tree" style="width:200px" onmouseover="this.src='img/generalinfotext.png'" onmouseout="this.src='img/generalinfo.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/nox.png" alt="tree" style="width:200px" onmouseover="this.src='img/noxtext.png'" onmouseout="this.src='img/nox.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/no2.png" alt="tree" style="width:200px"
+                             onmouseover="this.src='img/no2text.png'" onmouseout="this.src='img/no2.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/pm25pm10.png" alt="tree" style="width:200px"
+                               onmouseover="this.src='img/pm25pm10text.png'" onmouseout="this.src='img/pm25pm10.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/cigarette.png" alt="tree" style="width:200px"
+                               onmouseover="this.src='img/cigarettetext.png'" onmouseout="this.src='img/cigarette.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/health.png" alt="tree" style="width:200px"
+                               onmouseover="this.src='img/healthtext.png'" onmouseout="this.src='img/health.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/car.png" alt="tree" style="width:200px"
+                               onmouseover="this.src='img/cartext.png'" onmouseout="this.src='img/car.png'" >
+                    </div>
+                    <div class="column">
+                        <img src="img/tree.png" alt="tree" style="width:200px"
+                               onmouseover="this.src='img/treetext.png'" onmouseout="this.src='img/tree.png'" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

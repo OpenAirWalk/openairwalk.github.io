@@ -109,8 +109,13 @@
                     <p>The London Atmospheric Emissions Inventory (LAEI), which contains the most recent 2013 pollution surface data for NO2, NOx, PM10 and PM2.5. The data was sourced from the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Datastore</a>. </p>
                     
                     <p>The data for each of the pollutants listed above - NO2, NOx, PM10 and PM2.5 - were first normalised. Each layer of the pollutant values was converted to a uniform scale, by normalising and transforming the values to a range between 0 and 1. These layers were then added using raster algebra, to form the master layer. This layer was again normalised and finally scaled up to increase the detail of variation of the final values, therefore increasing the precision of the final routes. This normalisation allowed the combination of each separate pollutant into a master air pollution dataset; a single numerical reading for each point represents all pollutants.</p>
+
+                    <p>The analysis of the data focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants (NO2, NOx, PM10 and PM2.5) were selected, and follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, over which all 45 routes were overlaid.</p>
                     
-                    <div class="pictures">
+                    <p>The existing road network was used as the base for estimating the lowest routes. Random points were generated all across the borough, which were incidents on the road network to be used as origin and destination points for those routes. Finally, using these origin and destination points, multiple routes of various lengths passing through streets with the lowest combined level of pollutants were created to connect these origins and destinations.</p>
+                </div>
+                
+                <div class="pictures">
                             <div class="row">
                                 <div class="column">
                                   <img src="img/no2map.png" alt="no2 emission map" style="width:100%" >
@@ -129,11 +134,6 @@
                                      <figcaption><h3>PM 10</h3></figcaption>
                                 </div>
                             </div>
-                    </div>
-
-                    <p>The analysis of the data focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants (NO2, NOx, PM10 and PM2.5) were selected, and follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, over which all 45 routes were overlaid.</p>
-                    
-                    <p>The existing road network was used as the base for estimating the lowest routes. Random points were generated all across the borough, which were incidents on the road network to be used as origin and destination points for those routes. Finally, using these origin and destination points, multiple routes of various lengths passing through streets with the lowest combined level of pollutants were created to connect these origins and destinations.</p>
                 </div>
 
                 <div class="graphs">

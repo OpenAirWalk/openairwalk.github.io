@@ -221,40 +221,6 @@
                     },
                 });
 
-                var myChart = document.getElementById('chart2').getContext('2d');
-
-                //global options
-                Chart.defaults.global.responsive = false;
-                Chart.defaults.global.defaultFontSize = 10;
-
-                var chart2 = new Chart(myChart,{
-                    type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
-                    data: {
-                        labels:['NO2','NOX','PM2.5', 'PM10'],
-                        datasets:[{
-                            label:'Mean',
-                            data:[
-                                42.170698789745,
-                                73.565986036857,
-                                16.817938379119,
-                                26.644096102504
-                            ],
-                            backgroundColor:[
-                              '#e2c529',
-                              '#e28e43',
-                              '#16a085',
-                              '#758fbf',
-                            ],
-                            hoverBackgroundColor: [
-                              '#dfb50c',
-                              '#c66b1a',
-                              '#0a9177',
-                              '#166ca5',
-                            ], 
-                        }]
-                    },
-                });
-
             </script>
         </div>
     </body>

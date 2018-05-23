@@ -175,7 +175,7 @@ a:hover {
 
 #menu {
   position: absolute;
-  width: 345px;
+  width: 351px;
   height: 465px;
   text-align: justify;
   margin: -95px 0 0 -50px;
@@ -204,8 +204,6 @@ a:hover {
 }
 
 /* Mapbox base
-
-/* tables still need 'cellspacing="0"' in the markup */
 table { border-collapse: collapse; border-spacing:0; }
 
 :focus { outline:0; }

@@ -10,77 +10,65 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
-        <link rel="stylesheet" type="text/css" href="css/base.css"/>
         <script src="js/jquery.flot.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     </head>
-
     <head>
-        <style>
-            strong {
-                font-size: 18px;
-            }
-
-            h2 { 
-                font-size: 22px;
-                margin: 0% 15%;
-                text-align: left;
-                color: #006d2c;
-                font-size:40px;
-            }
-
-            #text {
-                margin: 20px 15% ;
-                text-align: justify;
-            }
-
-            .pictures{
-                margin: 3% 10%;
-                text-align: center;
-                
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            .column {
-                position: relative;
-                display: inline-block;
-                margin-left: auto;
-                margin-right: auto;
-                /*width:23%*/
-                min-width: 167px;
-                max-width: 217px;
-            }
-            
-            .row::after {
-                content: "";
-                clear: both;
-                display: table;
-            } 
-
-            .graphs {
-                margin: 3% 10%;
-                text-align: center;
-            }    
-
-            .column2 {
-                position: relative;
-                display: inline-block;
-                margin-left: auto;
-                margin-right: auto;
-
-            }
-
-            .row2::after {
-                content: "";
-                clear: both ;
-                display: table;
-            }        
-        </style>    
+            <style>
+                    strong {
+                        font-size: 18px;
+                    }
+                    h2 { 
+                        font-size: 26px;
+                        margin: 0% 15%;
+                        text-align: left;
+                        color: #006d2c;
+                        font-size:40px;
+                    }
+                    #text {
+                        margin: 20px 15% ;
+                        text-align: justify;
+                    }
+                    .pictures{
+                        margin: 3% 10%;
+                        text-align: center;
+                        
+                    }
+                    * {
+                        box-sizing: border-box;
+                    }
+                    .column {
+                        position: relative;
+                        display: inline-block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        /*width:23%*/
+                        min-width: 167px;
+                        max-width: 217px;
+                    }
+                    
+                    .row::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    } 
+                    .graphs {
+                        margin: 3% 10%;
+                        text-align: center;
+                    }    
+                    .column2 {
+                        position: relative;
+                        display: inline-block;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    .row2::after {
+                        content: "";
+                        clear: both ;
+                        display: table;
+                    }        
+                </style>    
     </head>
-
     <body>
 
             <nav role="navigation">
@@ -108,83 +96,97 @@
                     <p>This project uses data from the London Atmospheric Emissions Inventory (LAEI), which contains the most recent 2013 pollution surface data at 20m x 20m grid level for NO2, NOx, PM10 and PM2.5. The data can be downloaded from the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Datastore</a>.</p>
                     <br>
                     <h3>Analysis</h3>
-                    <p>The data for each of the pollutants listed above - NO2, NOx, PM10 and PM2.5 - was first normalised. Each layer of the pollutant values was converted to a uniform scale by normalising and transforming the values to a range between 0 and 1. These layers were then added using raster algebra, to form the master layer. This layer was again normalised and finally scaled up to increase the detail of variation of the final values, therefore increasing the precision of the final routes. This normalisation allowed the combination of each separate pollutant into a master air pollution dataset; a single numerical reading for each point represents all pollutants. The chart below shows the min, max and mean modelled concentrations for each of the pollutants.</p>
-                     
-                    <div class="graphs">
+                    <p>The data for each of the pollutants listed above - NO<sub>2</sub>, NO<sub>x</sub>, PM<sub>2.5</sub> and PM<sub>10</sub> - was first normalised. Each layer of the pollutant values was converted to a uniform scale by normalising and transforming the values to a range between 0 and 1. These layers were then added using raster algebra, to form the combined layer. This layer was again normalised and finally scaled up to increase the detail of variation of the final values, therefore increasing the precision of the final routes. This normalisation allowed the combination of each separate pollutant into a combined air pollution dataset; a single numerical reading for each point represents all pollutants. The chart below shows the min, max and mean modelled concentrations for each of the pollutants.</p>
+                </div>
+                    
+                    <div class="graph1">
                         <div class="column2">
-                        <div style="height:410px; width:460px">
-                            <canvas id="chart1" ></canvas>
-                        </div>
+                            <canvas id="chart1" alt="Chart showing the comparison of values for NO2, NOX, PM2.5 and PM10"></canvas>
                         </div>
                     </div>
-                    
-                    <p>The data analysis focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants - NO2, NOx, PM10 and PM2.5 - were selected, and aim to follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, upon which all 45 routes were overlaid. The Python code for creating the routes can be viewed on <a href="https://github.com/OpenAirWalk/openairwalk.github.io/blob/master/scripts/Healthy%20Routes%20Notebook.ipynb">Github</a>.</p>
-                    
-                    <p>The existing road network was used as the base for estimating the lowest routes. Random points were generated across the borough, which were incidents on the road network to be used as origin and destination points for those routes. Finally, using these origin and destination points, multiple routes of various lengths passing through streets with the lowest combined level of pollutants were created to connect the points.</p>
+                
+                <div id="text">
+                    <p>The data analysis focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants - NO2, NOx, PM2.5 and PM<sub>10</sub> - were selected, and aim to follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, upon which all 45 routes were overlaid.</p>
                 </div>
                 
+
+                <div id="text">
+                    <p>The existing road network was used as the base for estimating the lowest routes. Random points were generated across the borough, which were incidents on the road network to be used as origin and destination points for those routes. Finally, using these origin and destination points, multiple routes of various lengths passing through streets with the lowest combined level of pollutants were created to connect the points.</p>
+                </div>
+                                
+                <div id="text">
+                    <p>The graphic representation of the values for each individual pollutant are presented below. The lowest pollutant level areas are located mainly in the north east and the south east corner of the borough, where open and green spaces are a majority.</p>
+                </div>
+                
+                
                 <div class="pictures">
-                            <div class="row">
-                                <div class="column">
-                                  <img src="img/no2map.PNG" alt="no2 emission map" style="width:100%" >
-                                    <figcaption><small>NO2</small></figcaption>
-                                    </div>
-                                <div class="column">
-                                    <img src="img/noxmap.PNG" alt="nox emission map" style="width:100%" >
-                                    <figcaption><small>NOx</small></figcaption>
-                                </div>
-                                <div class="column">
-                                     <img src="img/pm25map.PNG" alt="pm2.5 emission map" style="width:100%" >
-                                    <figcaption><small>PM2.5</small></figcaption>
-                                </div>
-                                 <div class="column">
-                                     <img src="img/pm10map.PNG" alt="pm10 emission map" style="width:100%" >
-                                     <figcaption><small>PM10</small></figcaption>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="column">
+                          <img src="img/no2map.PNG" alt="no2 emission map" style="width:95%" >
+                            <figcaption>NO<sub>2</sub></figcaption>
+                        </div>
+                        <div class="column">
+                            <img src="img/noxmap.PNG" alt="nox emission map" style="width:95%" >
+                            <figcaption>NO<sub>x</sub></figcaption>
+                        </div>
+                        <div class="column">
+                             <img src="img/pm25map.PNG" alt="pm2.5 emission map" style="width:95%">
+                            <figcaption>PM<sub>2.5</sub></figcaption>
+                        </div>
+                        <div class="column">
+                             <img src="img/pm10map.PNG" alt="pm10 emission map" style="width:95%">
+                             <figcaption>PM<sub>10</sub></figcaption>
+                        </div>
+                    </div>
                 </div>                
                               
             <script>            
                 var myChart = document.getElementById('chart1').getContext('2d');
 
-                //global options
                 Chart.defaults.global.responsive = false;
                 Chart.defaults.global.defaultFontSize = 12;
+                myChart.canvas.width = 550;
+                myChart.canvas.height = 300;
 
                 var chart1 = new Chart(myChart,{
-                    type: 'bar',
+                    type: 'bar', 
                     data: {
-                        labels:['NO2','NOx','PM2.5', 'PM10'],
+                        labels:['NO2','NOX','PM2.5', 'PM10'],
                         datasets:[{
-                            label:'min',
+                            label:'Min',
                             fill: false,
                             lineTension: 0,
                             borderColor: '#db5b34',
                             backgroundColor: '#db5b34',
                             pointBackgroundColor: '#db5b34',
-                            data:[34,51,16,25],  
-                            pointStyle: 'circle',
+                            data:[34,51,16, 25],
                         },
                         {
-                            label:'mean',
+                            label:'EU Mean Limit',
                             fill: false,
                             lineTension: 0,
-                            borderColor: '#37d4b6',
-                            backgroundColor:'#37d4b6',
-                            pointBackgroundColor: '#37d4b6',
-                            data:[42,74,17,27],
-                            pointStyle: 'triangle',
+                            borderColor: '#e7298a',
+                            backgroundColor:'#e7298a',
+                            pointBackgroundColor: '#e7298a',
+                            data:[40,30,25,40],
+                        },          
+                        {
+                            label:'Mean',
+                            fill: false,
+                            lineTension: 0,
+                            borderColor: '#1b9e77',
+                            backgroundColor:'#1b9e77',
+                            pointBackgroundColor: '#1b9e77',
+                            data:[42,74,17, 27],
                         },
                         {
-                            label:'max',
+                            label:'Max',
                             fill: false,
                             lineTension: 0,
-                            borderColor: '#3861a2',
-                            backgroundColor:'#3861a2',
-                            pointBackgroundColor: '#3861a2',
-                            data:[192,784,31,66],
-                            pointStyle: 'rect',
-                            
+                            borderColor: '#7570b3',
+                            backgroundColor:'#7570b3',
+                            pointBackgroundColor: '#7570b3',
+                            data:[192,784,31, 66],
                         },
                         ]
                     },
@@ -194,7 +196,7 @@
                         title:{
                             display:true,
                             text:'',
-                            fontSize:12
+                            fontSize:13
                         },
                         legend:{
                             display:true,
@@ -206,7 +208,7 @@
                         layout:{
                             padding:{
                                 left:0,
-                                right:0,
+                                right:50,
                             }
                         },
                         scales: {
@@ -218,8 +220,7 @@
                         },
                         showLines: false,
                     },
-                });
-
+                });                
             </script>
         </div>
     </body>

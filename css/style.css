@@ -683,7 +683,6 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range] {
   /* display:inline-block!important; */
   /* vertical-align:middle; */
-  height: 23px;
   padding: 0 10px; 
   margin-top: -1px;
   /* border:2px solid transparent; */

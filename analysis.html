@@ -14,63 +14,6 @@
         <script src="js/jquery.flot.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     </head>
-        <head>
-            <style>
-                    strong {
-                        font-size: 18px;
-                    }
-                    h2 { 
-                        font-size: 22px;
-                        margin: 0% 15%;
-                        text-align: left;
-                        color: #006d2c;
-                        font-size:40px;
-                    }
-                    #text {
-                        margin: 20px 15% ;
-                        text-align: justify;
-                    }
-                    .pictures{
-                        margin: 3% 10%;
-                        text-align: center;
-                        
-                    }
-                    * {
-                        box-sizing: border-box;
-                    }
-                    .column {
-                        position: relative;
-                        display: inline-block;
-                        margin-left: auto;
-                        margin-right: auto;
-                        /*width:23%*/
-                        min-width: 167px;
-                        max-width: 217px;
-                    }
-                    
-                    .row::after {
-                        content: "";
-                        clear: both;
-                        display: table;
-                    } 
-                    .graphs {
-                        margin: 3% 10%;
-                        text-align: center;
-                    }    
-                    .column2 {
-                        position: relative;
-                        display: inline-block;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                    .row2::after {
-                        content: "";
-                        clear: both ;
-                        display: table;
-                    }        
-            </style>    
-    </head>
-
     <body>
 
             <nav role="navigation">
@@ -108,7 +51,7 @@
                         </div>
                     </div>
                 
-                    <p>The data analysis focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants - NO2, NOx, PM2.5 and PM<sub>10</sub> - were selected, and aim to follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, upon which all 45 routes were overlaid.</p>
+                    <p>The data analysis focused on the generation of 45 healthy, low pollution routes – five routes for lengths ranging from 1 to 9 kilometres (in gradations of 1km). The five routes for each kilometre length with the lowest mean concentration level for all four pollutants - NO2, NOx, PM2.5 and PM10 - were selected, and aim to follow the existing streets of the borough. The combined pollutant concentration layer was therefore used as the master layer, upon which all 45 routes were overlaid.</p>
                 
                     <p>The existing road network was used as the base for estimating the lowest routes. Random points were generated across the borough, which were incidents on the road network to be used as origin and destination points for those routes. Finally, using these origin and destination points, multiple routes of various lengths passing through streets with the lowest combined level of pollutants were created to connect the points.</p>
                     <p>It might be interesting to provide a visualisation of how the pollutants change over the course of a specific route. While the healthy routes displayed on the home page use the combined pollutant values, the following line chart displays the pollutants individually. It is interesting to visualise the pollutants separately, as we can see from the chart below that some pollutants may vary considerably, while the variation of others is negligible. The route on which this line chart is based, is one of the 2km routes displayed on the home page. The x-axis shows the interpolated pollution data for the 531 points used to create the route itself.</p>

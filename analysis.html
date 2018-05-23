@@ -112,7 +112,7 @@
                      
                     <div class="graphs">
                         <div class="column2">
-                        <div style="height:300px; width:600px">
+                        <div style="height:300px; width:460px">
                             <canvas id="chart1" ></canvas>
                         </div>
                         </div>
@@ -149,12 +149,12 @@
 
                 //global options
                 Chart.defaults.global.responsive = true;
-                Chart.defaults.global.defaultFontSize = 11;
+                Chart.defaults.global.defaultFontSize = 12;
 
                 var chart1 = new Chart(myChart,{
                     type: 'bar',
                     data: {
-                        labels:['NO2','NOX','PM2.5', 'PM10'],
+                        labels:['NO2','NOx','PM2.5', 'PM10'],
                         datasets:[{
                             label:'min',
                             fill: false,
@@ -162,7 +162,7 @@
                             borderColor: '#db5b34',
                             backgroundColor: '#db5b34',
                             pointBackgroundColor: '#db5b34',
-                            data:[34,51,16, 25],  
+                            data:[34,51,16,25],  
                             pointStyle: 'circle',
                         },
                         {
@@ -172,7 +172,7 @@
                             borderColor: '#37d4b6',
                             backgroundColor:'#37d4b6',
                             pointBackgroundColor: '#37d4b6',
-                            data:[42,74,17, 27],
+                            data:[42,74,17,27],
                             pointStyle: 'triangle',
                         },
                         {
@@ -182,7 +182,7 @@
                             borderColor: '#3861a2',
                             backgroundColor:'#3861a2',
                             pointBackgroundColor: '#3861a2',
-                            data:[192,784,31, 66],
+                            data:[192,784,31,66],
                             pointStyle: 'rect',
                             
                         },

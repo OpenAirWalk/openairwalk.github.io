@@ -148,8 +148,8 @@
                 var myChart = document.getElementById('chart1').getContext('2d');
 
                 //global options
-                Chart.defaults.global.responsive = false;
-                Chart.defaults.global.defaultFontSize = 10;
+                Chart.defaults.global.responsive = true;
+                Chart.defaults.global.defaultFontSize = 11;
 
                 var chart1 = new Chart(myChart,{
                     type: 'bar',
@@ -190,7 +190,7 @@
                     },
                     options: {
                         responsive: true,
-                        maintainAspectRatio: false,
+                        maintainAspectRatio: true,
                         title:{
                             display:true,
                             text:'',

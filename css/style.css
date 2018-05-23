@@ -114,8 +114,8 @@ a:hover {
 #menuToggle {
   display: block;
   position: relative;
-  top: 24px;
-  left: 12px;
+  top: 20px;
+  left: 20px;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -175,7 +175,7 @@ a:hover {
 
 #menu {
   position: absolute;
-  width: 351px;
+  width: 345px;
   height: 465px;
   text-align: justify;
   margin: -95px 0 0 -50px;
@@ -683,6 +683,7 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range] {
   /* display:inline-block!important; */
   /* vertical-align:middle; */
+  height: 10px;
   padding: 0 10px; 
   margin-top: -1px;
   /* border:2px solid transparent; */

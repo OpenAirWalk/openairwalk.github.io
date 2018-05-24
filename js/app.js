@@ -195,7 +195,7 @@ $(document).ready(function(){
       $("#console").height(105);
     }
     else {
-      $("#console").height(129);
+      $("#console").height(128);
     }
   });
   

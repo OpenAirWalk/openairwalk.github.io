@@ -12,6 +12,7 @@
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
         <link rel="stylesheet" type="text/css" href="css/base.css"/>
     </head>
+
     <body>
 
     <nav role="navigation">
@@ -25,7 +26,7 @@
                     <a href="about.html"><li>About</li></a>
                     <a href="analysis.html"><li>Analysis</li></a>
                     <br>
-                    <p>This interactive map visualises the top five healthiest walking routes by kilometre and air pollution in the London Borough of Tower Hamlets.</p>
+                    <p>This interactive map visualises the top five healthy routes by kilometre by air quality and pollution in the London Borough of Tower Hamlets.</p>
                     <p>To use this map, switch between routes and pollution using the button. Hover over the routes and use the slider to filter the healthiest routes by length. Zoom, scroll and use the bar above to further explore the map.</p>
             </ul>
             </div>
@@ -35,52 +36,53 @@
             <h2>ABOUT</h2>
             <br>
             <div id="text">
-                <h3>Air Pollution in London</h3>    
-                <p>Air pollution causes the early death of more than 9,000 Londoners every year, costing London’s economy around £3.7 billion. Air pollution, the release of harmful gases and particulates into the atmosphere, is detrimental to health, and is a major problem, especially in large, densely-populated cities like London.</p> 
+            
+            <h3>Air Pollution</h3>    
+            <p>Air pollution causes the early death of more than 9,000 Londoners every year, costing London’s economy around £3.7 billion. Air pollution, the release of harmful gases and particulates into the atmosphere, is detrimental to health, and is a major problem, especially in large, densely-populated cities like London.</p> 
 
-                <p>Air pollution is primarily caused by energy production, and in London, one of the main causes is transportation. Air pollution negatively impacts upon health, affecting the heart and the lungs, with the impacts ranging from short-term, milder symptoms, to long-term fatal conditions.</p>
+            <p>Air pollution is primarily caused by energy production, and in London, one of the main causes is transportation. Air pollution negatively impacts upon health, affecting the heart and the lungs, with the impacts ranging from short-term, milder symptoms, to long-term fatal conditions.</p>
 
-                <p>The significance of air pollution has made its reduction a major focus of clean-air initiatives within London. These initiatives have been informed by the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Atmospheric Emissions Inventory (LAEI) 2013</a>, and have centred around the monitoring of four key pollutants – nitrogen dioxide (NO2), nitrogen oxides (NOx), particulate matter with aerodynamic diameter less than 10µm (PM10), and particulate matter with aerodynamic diameter less than 2.5µm (PM2.5) – as well as a variety of other pollutant types.</p> 
-
-                    <div class="pictures">
-                        <div class="row">
-                         <div class="column">
-                            <img src="img/generalinfo.png" alt="tree" style="width:200px" onmouseover="this.src='img/generalinfotext.png'" onmouseout="this.src='img/generalinfo.png'" >
-                        </div>
-                        <div class="column">
-                            <img src="img/nox.png" alt="tree" style="width:200px" onmouseover="this.src='img/noxtext.png'" onmouseout="this.src='img/nox.png'" >
-                        </div>
-                        <div class="column">
-                            <img src="img/no2.png" alt="tree" style="width:200px"
-                                 onmouseover="this.src='img/no2text.png'" onmouseout="this.src='img/no2.png'" >
-                        </div>
-                        <div class="column">
-                            <img src="img/pm25pm10.png" alt="tree" style="width:200px"
-                                   onmouseover="this.src='img/pm25pm10text.png'" onmouseout="this.src='img/pm25pm10.png'" >
-                        </div>
-                        </div>       
-            </div>
+            <p>The significance of air pollution has made its reduction a major focus of clean-air initiatives within London. These initiatives have been informed by the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Atmospheric Emissions Inventory (LAEI) 2013</a>, and have centred around the monitoring of four key pollutants – nitrogen dioxide (NO<sub>2</sub>), nitrogen oxides (NO<sub>x</sub>), particulate matter with aerodynamic diameter less than 10µm (PM<sub>10</sub>), and particulate matter with aerodynamic diameter less than 2.5µm (PM<sub>2.5</sub>) – as well as a variety of other pollutant types.</p> 
+            
+                <div class="pictures2">
+                    <div class="row">
+                     <div class="column3">
+                        <img src="img/generalinfo.png" alt="inforgraph about pollution" style="width:200px" onmouseover="this.src='img/generalinfotext.png'" onmouseout="this.src='img/generalinfo.png'" >
+                    </div>
+                    <div class="column3">
+                        <img src="img/nox.png" alt="inforgraph about nox" style="width:200px" onmouseover="this.src='img/noxtext.png'" onmouseout="this.src='img/nox.png'" >
+                    </div>
+                    <div class="column3">
+                        <img src="img/no2.png" alt="inforgraph about no2" style="width:200px"
+                             onmouseover="this.src='img/no2text.png'" onmouseout="this.src='img/no2.png'" >
+                    </div>
+                    <div class="column3">
+                        <img src="img/pm25pm10.png" alt="inforgraph about PM2.5 and PM10" style="width:200px"
+                               onmouseover="this.src='img/pm25pm10text.png'" onmouseout="this.src='img/pm25pm10.png'" >
+                    </div>
+                    </div>       
+                </div>
             
             <h3>Open Air Walk</h3>    
-            <p>The aim of this project is to create a user-friendly tool that visualises healthy walking routes and air pollution in the London Borough of Tower Hamlets. Based on 2013 LAEI air pollution data from the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Datastore</a>, the tool has developed walking routes defined as healthy within the context of air pollution. The routes have been calculated based on paths of least mean pollution. This interactive visualisation provides a tool for users to explore the healthiest routes in the borough.</p>
-            </div>
+            <p>The aim of this project is to create a user-friendly tool that visualises healthy walking routes and pollution in the London Borough of Tower Hamlets. Based on the 2013 LAEI air pollution data from the <a href="https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-2013">London Datastore</a>, the tool has developed walking routes defined as healthy within the context of air pollution. The routes have been calculated based on paths of least mean pollution. This visualisation provides a tool for local citizens and other users. It enables the exploration of the healthiest outdoor routes nearby, which could improve health outcomes in the borough. Two of the icons below, demonstrate the equivalent toxicity of cigarettes smoked to poor air quality inhaled, and the potential reduction of air pollution by the planting of new trees. These equivalency metrics were selected to provide a comparison between smoking, an incredibly unhealthy activity, and simply breathing in London.</p>
+        </div>
 
             <div class="pictures">
                 <div class="row">
-                    <div class="column">
-                        <img src="img/cigarette.png" alt="tree" style="width:150px"
+                    <div class="column3">
+                        <img src="img/cigarette.png" alt="inforgraph about cigarettes" style="width:200px"
                                onmouseover="this.src='img/cigarettetext.png'" onmouseout="this.src='img/cigarette.png'" >
                     </div>
-                    <div class="column">
-                        <img src="img/health.PNG" alt="tree" style="width:150px"
+                    <div class="column3">
+                        <img src="img/health.PNG" alt="inforgraph about health issues" style="width:200px"
                                onmouseover="this.src='img/healthtext.png'" onmouseout="this.src='img/health.PNG'" >
                     </div>
-                    <div class="column">
-                        <img src="img/car.png" alt="tree" style="width:150px"
+                    <div class="column3">
+                        <img src="img/car.png" alt="inforgraph about vehicles" style="width:200px"
                                onmouseover="this.src='img/cartext.png'" onmouseout="this.src='img/car.png'" >
                     </div>
-                    <div class="column">
-                        <img src="img/tree.png" alt="tree" style="width:150px"
+                    <div class="column3">
+                        <img src="img/tree.png" alt="inforgraph about planting" style="width:200px"
                                onmouseover="this.src='img/treetext.png'" onmouseout="this.src='img/tree.png'" >
                     </div>
                 </div>

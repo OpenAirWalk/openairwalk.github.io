@@ -193,9 +193,11 @@ $(document).ready(function(){
     layerId = e.target.id;
     if (layerId === 'pollution') {
       $("#console").height(90);
+      $("#console").removeAttr("style");
     }
     else {
       $("#console").height(122);
+      $("#console").removeAttr("style");
     }
   });
   

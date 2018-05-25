@@ -17,6 +17,7 @@ body {
   position: absolute;
   font-family: Helvetica;
   width: 292px;
+  height: 157px;
   top: 61px;
   margin: 19px;
   padding: 10px 10px;
@@ -136,23 +137,12 @@ input[type=range] {
   margin-right: 2px;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-  height: 10px;
-  cursor: pointer;
-  animation: 0.2s;
-  background: #c9c9c9;
-  border-radius: 10px;
-}
-
 input[type=range]::-webkit-slider-thumb {
   border-radius: 2px;
   background: #006d2c;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -5px;
 }
-
-
 
 .legend {
   margin-left: 1px;
@@ -276,6 +266,11 @@ a:hover {
 
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+strong, b {
+  font-weight: bold;
+  color: black;
 }
 
 /* Mapbox base
